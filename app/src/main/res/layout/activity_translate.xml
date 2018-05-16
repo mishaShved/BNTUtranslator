@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.misha.bntu_translator.TranslateActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <Spinner
+                    android:id="@+id/firstLanguage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contextClickable="false"
+                    android:entries="@array/languages"
+                    android:popupBackground="@drawable/resstyle" />
+
+                <Button
+                    android:id="@+id/changeLng"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="8dp" />
+
+                <Spinner
+                    android:id="@+id/secondLanguage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:entries="@array/languages"
+                    android:popupBackground="@drawable/resstyle" />
+            </TableRow>
+
+
+
+        </TableLayout>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/word"
+                style="@style/Widget.AppCompat.AutoCompleteTextView"
+                android:layout_weight="120"
+                android:inputType="text"
+                android:imeOptions="actionDone"/>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                app:backgroundTint="@android:color/transparent"
+                app:elevation="1dp"
+                app:rippleColor="@android:color/transparent"
+                app:srcCompat="@drawable/lupa" />
+
+        </TableRow>
+
+        <HorizontalScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:id="@+id/faculties"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <include
+            layout="@layout/content_translate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
