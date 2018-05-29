@@ -58,6 +58,9 @@ public class TranslateActivity extends AppCompatActivity implements View.OnClick
         Spinner firstLanguage = (Spinner)findViewById(R.id.firstLanguage);
         firstLanguage.setSelection(1);
 
+        Spinner secondLanguage = (Spinner)findViewById(R.id.secondLanguage);
+        secondLanguage.setSelection(2);
+
 
 
         EditText word = (EditText) findViewById(R.id.word);
