@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutionException;
 
 
 public class RequestController {
-    public static final String HOST_IP = "192.168.43.61:8080";
+    public static final String HOST_IP = "translator.mycloud.by";
     private static final String VERSON_PREFIX = "version = ";
 
     public static String selectRequest(String request) {
@@ -17,7 +17,8 @@ public class RequestController {
 
     public static int getVersion(String fac) {
         fac = fac.toUpperCase();
-        String response = executeRequest("http://" + RequestController.HOST_IP + "/ServletForTranslator/dictionarydb?REQ=version" + fac);
+        //String response = executeRequest("http://" + RequestController.HOST_IP + "/ServletForTranslator/dictionarydb?REQ=version" + fac);
+        String response = executeRequest("http://" + RequestController.HOST_IP + "/dictionarydb?REQ=version" + fac);
         if (response != null && response.startsWith(VERSON_PREFIX)) {
             response = response.substring(VERSON_PREFIX.length());
             return Integer.parseInt(response);
@@ -27,7 +28,8 @@ public class RequestController {
 
     public static String getDB(String fac) {
         fac = fac.toUpperCase();
-        return executeRequest("http://" + RequestController.HOST_IP + "/ServletForTranslator/dictionarydb?REQ=db" + fac);
+        //return executeRequest("http://" + RequestController.HOST_IP + "/ServletForTranslator/dictionarydb?REQ=db" + fac);
+        return executeRequest("http://" + RequestController.HOST_IP + "/dictionarydb?REQ=db" + fac);
     }
 
     private static String executeRequest(String request) {

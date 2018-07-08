@@ -2,6 +2,7 @@ package com.example.misha.bntu_translator;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -46,6 +47,7 @@ public class TranslateActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         FloatingActionButton btnSearch = (FloatingActionButton)findViewById(R.id.search);
         Button btnChange = (Button)findViewById(R.id.changeLng);
@@ -57,9 +59,6 @@ public class TranslateActivity extends AppCompatActivity implements View.OnClick
 
         Spinner firstLanguage = (Spinner)findViewById(R.id.firstLanguage);
         firstLanguage.setSelection(1);
-
-        Spinner secondLanguage = (Spinner)findViewById(R.id.secondLanguage);
-        secondLanguage.setSelection(2);
 
 
 
@@ -161,30 +160,30 @@ public class TranslateActivity extends AppCompatActivity implements View.OnClick
         String languageTo = null;
         switch (posicionFirstLanguage){
             case 0:
-                languageFrom = DBHelper.KEY_RUS;
+                languageFrom = DBHelper.KEY_BEL;
                 break;
             case 1:
                 languageFrom = DBHelper.KEY_ENG;
                 break;
             case 2:
-                languageFrom = DBHelper.KEY_BEL;
+                languageFrom = DBHelper.KEY_RUS;
                 break;
         }
         switch (posicionSecondLanguage ){
             case 0:
-                languageTo = DBHelper.KEY_RUS;
+                languageTo = DBHelper.KEY_BEL;
                 break;
             case 1:
                 languageTo = DBHelper.KEY_ENG;
                 break;
             case 2:
-                languageTo = DBHelper.KEY_BEL;
+                languageTo = DBHelper.KEY_RUS;
                 break;
         }
 
         String[] l = {languageTo, languageFrom};
         if (word == null || word.length() == 0) {
-            word = "q";
+            return;
         }
         word = word.toLowerCase();
         char[] q = word.toCharArray();
